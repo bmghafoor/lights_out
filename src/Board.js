@@ -27,6 +27,11 @@ import "./Board.css";
  *
  **/
 
+// function to randomly return true or false. Math.random will return a value from 0.0 - 1.0
+function trueOrfalse() {
+  return Math.random() < 0.5;
+}
+
 function Board({ nrows, ncols, chanceLightStartsOn }) {
   const [board, setBoard] = useState(createBoard());
 
@@ -34,6 +39,10 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   function createBoard() {
     let initialBoard = [];
     // TODO: create array-of-arrays of true/false values
+    for (let i = 0; i < nrows; i++) {
+      // Array.from will return an array length of ncols and the values in that array will be true or false
+      initialBoard.push(Array.from({ length: ncols }, () => trueOrfalse()));
+    }
     return initialBoard;
   }
 
@@ -42,7 +51,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   }
 
   function flipCellsAround(coord) {
-    setBoard(oldBoard => {
+    setBoard((oldBoard) => {
       const [y, x] = coord.split("-").map(Number);
 
       const flipCell = (y, x, boardCopy) => {
