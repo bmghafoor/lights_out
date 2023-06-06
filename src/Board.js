@@ -48,6 +48,15 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   function hasWon() {
     // TODO: check the board in state to determine whether the player has won.
+    singleArray = [].concat(...board);
+
+    if (!singleArray.includes(true)) {
+      return (
+        <>
+          <h1>Game over You win</h1>
+        </>
+      );
+    }
   }
 
   function flipCellsAround(coord) {
