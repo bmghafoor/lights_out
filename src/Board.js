@@ -28,11 +28,11 @@ import "./Board.css";
  **/
 
 // function to randomly return true or false. Math.random will return a value from 0.0 - 1.0
-function trueOrfalse() {
-  return Math.random() < 0.5;
+function trueOrfalse(odds) {
+  return Math.random() < odds;
 }
 
-function Board({ nrows = 5, ncols = 4, chanceLightStartsOn }) {
+function Board({ nrows = 5, ncols = 4, chanceLightStartsOn = 0.33 }) {
   const [board, setBoard] = useState(createBoard());
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -41,7 +41,9 @@ function Board({ nrows = 5, ncols = 4, chanceLightStartsOn }) {
     // TODO: create array-of-arrays of true/false values
     for (let i = 0; i < nrows; i++) {
       // Array.from will return an array length of ncols and the values in that array will be true or false
-      initialBoard.push(Array.from({ length: ncols }, () => trueOrfalse()));
+      initialBoard.push(
+        Array.from({ length: ncols }, () => trueOrfalse(chanceLightStartsOn))
+      );
     }
     return initialBoard;
   }
