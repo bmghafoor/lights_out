@@ -32,7 +32,7 @@ function trueOrfalse(odds) {
   return Math.random() < odds;
 }
 
-function Board({ nrows = 5, ncols = 4, chanceLightStartsOn = 0.33 }) {
+function Board({ nrows = 5, ncols = 5, chanceLightStartsOn = 0.75 }) {
   const [board, setBoard] = useState(createBoard());
 
   /** create a board nrows high/ncols wide, each cell randomly lit or unlit */
@@ -53,12 +53,9 @@ function Board({ nrows = 5, ncols = 4, chanceLightStartsOn = 0.33 }) {
     const singleArray = [].concat(...board);
 
     if (!singleArray.includes(true)) {
-      return (
-        <>
-          <h1>Game over You win</h1>
-        </>
-      );
+      return true;
     }
+    return false;
   }
 
   function flipCellsAround(coord) {
@@ -115,9 +112,18 @@ function Board({ nrows = 5, ncols = 4, chanceLightStartsOn = 0.33 }) {
   }
 
   return (
-    <table className="Board">
-      <tbody>{gameBoard}</tbody>
-    </table>
+    <>
+      <h1>Lights Out</h1>
+      {hasWon() && <h2>Game over You win</h2>}
+      <p>Turn off the lights to win!</p>
+      <table className="Board">
+        <tbody>{gameBoard}</tbody>
+      </table>
+      <p>
+        By clicking on a cell, you toggle that cell and the neighboring cells
+        are flipped as well.
+      </p>
+    </>
   );
 }
 

@@ -1,3 +1,11 @@
 .Board {
   margin: 0 auto;
 }
+
+.Board td {
+  border: 2px solid #333;
+}
+
+.Board td:hover {
+  background-color: #eee;
+}
