@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/lights_out/static/css/main.4dbd9d2e.css",
+    "main.js": "/lights_out/static/js/main.b8bf3c07.js",
+    "static/media/lightson.png": "/lights_out/static/media/lightson.54d876113d2cd83a9661.png",
+    "index.html": "/lights_out/index.html",
+    "main.4dbd9d2e.css.map": "/lights_out/static/css/main.4dbd9d2e.css.map",
+    "main.b8bf3c07.js.map": "/lights_out/static/js/main.b8bf3c07.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4dbd9d2e.css",
+    "static/js/main.b8bf3c07.js"
+  ]
+}
